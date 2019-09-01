@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div id="share" class="container">
+    {% if sent %}
+    <div class="bg-success">
+        <h2>{{ post.title }} was successfully sent by email</h2>
+    </div>
+    {% else %}
+    <h2>Share "{{ post.title }}" by email</h2>
+    <form action="" method="POST">{% csrf_token %}
+        {{ form|crispy }}
+        <input class="btn btn-primary" type="submit" value="Share Post">
+    </form>
+    {% endif %}
+</div>
+
+{% endblock %}

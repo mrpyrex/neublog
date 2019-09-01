@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="col-md-8">
+
+    {% if 'query' in request.GET %}
+    <h3>Posts containing "{{ cd.query }}"</h3>
+    <h4>Found {{ total_results }} result{{ total_results}}</h4>
+    {% for result in results %}
+    {% with post=result.object %}
+    <h4><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h4>
+    {{ post.content|truncatewords:5 }}
+    {% endwith %}
+    {% empty %}
+    <p>There are no results for your query</p>
+    {% endfor %}
+    <p><a href="{% url 'post:search' %}">search again</a></p>
+    {% else %}
+
+    <form action="." method="GET">
+        {{ search_form|crispy}}
+        <input type="submit" value="Search">
+    </form>
+    {% endif %}
+
+    <!-- <form action="." method="GET">
+        {{ search_form|crispy}}
+        <button class="btn btn-primary">Search</button>
+        {% if query %}
+        <h3>Results</h3>
+
+        {% for result in page.object_list %}
+        <p>
+            <a href="{{ result.object.get_absolute_url }}">{{ result.object.title }}</a>
+        </p>
+        {% empty %}
+        <p>No results found.</p>
+        {% endfor %}
+        {% endif %}
+    </form> -->
+</div>
+{% endblock %}

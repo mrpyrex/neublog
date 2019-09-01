@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+<div class="col-md-8">
+
+    <div class="card p-4 m-4">
+
+
+        <form method="POST" action="" enctype="multipart/form-data">{% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="mb-4">Add A New Post</legend>
+                {{ form.media}}
+                {{ form|crispy}}
+            </fieldset>
+            <button class="mb-3 btn btn-outline-info" type="submit">Post</button>
+        </form>
+    </div>
+
+</div>
+{% endblock %}
