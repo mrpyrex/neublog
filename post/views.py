@@ -133,7 +133,7 @@ class PostDeleteView(UserPassesTestMixin, LoginRequiredMixin, DeleteView):
 
 def featured_view(request):
     featured_post = Post.objects.filter(featured=True)
-
+    print(featured_post)
     context = {
         'featured_post': featured_post,
         'title': 'Featured Posts'
