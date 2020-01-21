@@ -57,7 +57,7 @@ six==1.11.0
 sorl-thumbnail==12.5.0
 tinycss2==1.0.2
 urllib3==1.24.1
-validators==0.12.4
+validators==0.12.6
 vine==1.1.4
 WeasyPrint==48
 webencodings==0.5.1
