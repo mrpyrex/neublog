@@ -34,7 +34,7 @@ mccabe==0.6.1
 Naked==0.1.31
 paystackapi==1.2.7
 paywix==2.1
-Pillow==5.2.0
+Pillow==8.2.0
 psycopg2==2.7.5
 pycodestyle==2.5.0
 pycparser==2.19
